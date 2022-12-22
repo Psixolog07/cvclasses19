@@ -13,7 +13,7 @@ void motion_segmentation::apply(cv::InputArray _image, cv::OutputArray _fgmask, 
 
     if (_image.empty())
         return;
-    cv::Mat image = _image.getMat();
+    cv::Mat image = _image.getMat().clone();
     cv::GaussianBlur(image, image, cv::Size(5, 5), 0);
     cv::cvtColor(image, image, cv::COLOR_BGR2GRAY);
 
